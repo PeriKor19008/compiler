@@ -12,7 +12,7 @@
 ","		{ return ',';}
 "{"		{ return '{';}
 "}"		{ return '}';}
-"last"		{ return LAST; }
-"active"	{ return ACTIVE; }
+"\"last\":"	{ return LAST; }
+"\"active\":"	{ return ACTIVE; }
 
 %%

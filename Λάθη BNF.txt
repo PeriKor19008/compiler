@@ -1,4 +1,0 @@
-Το prizeCategories δεν είναι για id θετικό, αλλά για id == 1
-Το prizeCategores λοιπόν έχει διπλό ορισμό:
-prizeCategories: PRIZE_CATEGORIES '[' '1' ',' divident ',' winners ',' distributed ',' jackpot ',' fixed ',' categoryType ',' gameType ',' minimumDistributed ']' {}
-               | PRIZE_CATEGORIES '[' id ',' divident ',' winners ',' distributed ',' jackpot ','  fixed ',' categoryType ','gameType ']' {}

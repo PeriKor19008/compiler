@@ -51,14 +51,14 @@
 %token POSITIVE_REAL
 %token ARRAY_POSITIVE_INTEGERS
 %token ARRAY_POSITIVE_INTEGER
-%token POSITIVE_INTEGER_ONE_TO_EIGHT
+%token POSITIVE_INTEGER_TWO_TO_EIGHT
 %token BOOLEAN
 %token JSON_ARRAY
 %token REAL
 %token '1'
 
 %%
-program: '{' last ',' active '}' {printf("The Syntax was Correct!\n");}
+compiler: '{' last ',' active '}' {printf("The Syntax was Correct!\n");}
 
 last: LAST {}; //This is temporary
 
@@ -83,7 +83,7 @@ list: LIST ARRAY_POSITIVE_INTEGERS {}
 bonus: BONUS ARRAY_POSITIVE_INTEGER {}
 prizeCategories: PRIZE_CATEGORIES '[' '1' ',' divident ',' winners ',' distributed ',' jackpot ',' fixed ',' categoryType ',' gameType ',' minimumDistributed ']' {}
 	       | PRIZE_CATEGORIES '[' id ',' divident ',' winners ',' distributed ',' jackpot ',' fixed ',' categoryType ',' gameType ']' {}
-id: ID POSITIVE_INTEGER_ONE_TO_EIGHT {}
+id: ID POSITIVE_INTEGER_TWO_TO_EIGHT {}
 divident: DIVIDENT POSITIVE_REAL {}
 winners: WINNERS POSITIVE_INTEGER {}
 distributed: DISTRIBUTED POSITIVE_REAL {}

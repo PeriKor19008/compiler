@@ -151,7 +151,7 @@ extern int yydebug;
     POSITIVE_REAL = 287,           /* POSITIVE_REAL  */
     ARRAY_POSITIVE_INTEGERS = 288, /* ARRAY_POSITIVE_INTEGERS  */
     ARRAY_POSITIVE_INTEGER = 289,  /* ARRAY_POSITIVE_INTEGER  */
-    POSITIVE_INTEGER_ONE_TO_EIGHT = 290, /* POSITIVE_INTEGER_ONE_TO_EIGHT  */
+    POSITIVE_INTEGER_TWO_TO_EIGHT = 290, /* POSITIVE_INTEGER_TWO_TO_EIGHT  */
     BOOLEAN = 291,                 /* BOOLEAN  */
     JSON_ARRAY = 292,              /* JSON_ARRAY  */
     REAL = 293                     /* REAL  */
@@ -195,7 +195,7 @@ extern int yydebug;
 #define POSITIVE_REAL 287
 #define ARRAY_POSITIVE_INTEGERS 288
 #define ARRAY_POSITIVE_INTEGER 289
-#define POSITIVE_INTEGER_ONE_TO_EIGHT 290
+#define POSITIVE_INTEGER_TWO_TO_EIGHT 290
 #define BOOLEAN 291
 #define JSON_ARRAY 292
 #define REAL 293
@@ -273,13 +273,13 @@ enum yysymbol_kind_t
   YYSYMBOL_POSITIVE_REAL = 37,             /* POSITIVE_REAL  */
   YYSYMBOL_ARRAY_POSITIVE_INTEGERS = 38,   /* ARRAY_POSITIVE_INTEGERS  */
   YYSYMBOL_ARRAY_POSITIVE_INTEGER = 39,    /* ARRAY_POSITIVE_INTEGER  */
-  YYSYMBOL_POSITIVE_INTEGER_ONE_TO_EIGHT = 40, /* POSITIVE_INTEGER_ONE_TO_EIGHT  */
+  YYSYMBOL_POSITIVE_INTEGER_TWO_TO_EIGHT = 40, /* POSITIVE_INTEGER_TWO_TO_EIGHT  */
   YYSYMBOL_BOOLEAN = 41,                   /* BOOLEAN  */
   YYSYMBOL_JSON_ARRAY = 42,                /* JSON_ARRAY  */
   YYSYMBOL_REAL = 43,                      /* REAL  */
   YYSYMBOL_44_1_ = 44,                     /* '1'  */
   YYSYMBOL_YYACCEPT = 45,                  /* $accept  */
-  YYSYMBOL_program = 46,                   /* program  */
+  YYSYMBOL_compiler = 46,                  /* compiler  */
   YYSYMBOL_last = 47,                      /* last  */
   YYSYMBOL_active = 48                     /* active  */
 };
@@ -698,8 +698,8 @@ static const char *const yytname[] =
   "GAMETYPE", "MINIMUM_DISTRIBUTED", "WAGER_STATISTICS", "COLUMNS",
   "WAGERS", "ADDON", "POSITIVE_INTEGER", "ALPHANUMERIC", "POSITIVE_REAL",
   "ARRAY_POSITIVE_INTEGERS", "ARRAY_POSITIVE_INTEGER",
-  "POSITIVE_INTEGER_ONE_TO_EIGHT", "BOOLEAN", "JSON_ARRAY", "REAL", "'1'",
-  "$accept", "program", "last", "active", YY_NULLPTR
+  "POSITIVE_INTEGER_TWO_TO_EIGHT", "BOOLEAN", "JSON_ARRAY", "REAL", "'1'",
+  "$accept", "compiler", "last", "active", YY_NULLPTR
 };
 
 static const char *
@@ -1622,9 +1622,9 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-  case 2: /* program: '{' last ',' active '}'  */
+  case 2: /* compiler: '{' last ',' active '}'  */
 #line 61 "bison.y"
-                                 {printf("The Syntax was Correct!\n");}
+                                  {printf("The Syntax was Correct!\n");}
 #line 1629 "y.tab.c"
     break;
 

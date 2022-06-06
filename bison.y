@@ -44,6 +44,21 @@
 %token COLUMNS
 %token WAGERS
 %token ADDON
+//Extra exc2 Tokens
+%token CONTENT
+%token TOTAL_PAGES
+%token TOTAL_ELEMENTS
+%token NUMBER_OF_ELEMENTS
+%token SORT
+%token DIRECTION
+%token PROPERTY
+%token IGNORE_CASE
+%token NULL_HANDLING
+%token DESCENDING
+%token ASCENDING
+%token FIRST
+%token SIZE
+%token NUMBER
 
 //Value Tokens
 %token POSITIVE_INTEGER
@@ -56,14 +71,19 @@
 %token JSON_ARRAY
 %token REAL
 %token '1'
+%token PROPERTY
+%token ID
+%token CONTENTOBJECT
 
 %%
-compiler: '{' last ',' active '}' {printf("The Syntax was Correct!\n");}
+compiler:   '{' last ',' active '}' {printf("The Syntax was Correct!\n");}
+	  | '{' content ',' totalPages ',' totalElements ',' last2 ',' numberOfElements ',' sort ',' first ',' size ',' number '}' {printf("The Syntax was Correct!\n");}
+	  ;
 
 last: LAST {}; //This is temporary
 
 //Below is the correct  entry
-//last: LAST '{'  gameId ',' drawId ',' drawTime ',' status ',' drawBreak ',' visualDraw ',' pricePoints ',' winningNumbers ',' prizeCategories ',' wagerStatistics '}' {};
+//last: ( LAST '{'  gameId ',' drawId ',' drawTime ',' status ',' drawBreak ',' visualDraw ',' pricePoints ',' winningNumbers ',' prizeCategories ',' wagerStatistics '}' 
 
 active: ACTIVE {}; // This is temporary
 
@@ -96,6 +116,26 @@ wagerStatistics: WAGER_STATISTICS '{' columns ',' wagers ',' addOn '}'{}
 columns: COLUMNS POSITIVE_INTEGER {}
 wagers: WAGERS POSITIVE_INTEGER {}
 addOn: ADDON JSON_ARRAY {}
+
+//Extra exc2 Tokens
+content: CONTENT '[' gameId ',' drawId ',' drawTime ',' status ',' drawBreak ',' visualDraw ',' pricePoints ',' winningNumbers ',' prizeCategories ',' wagerStatistics ']' {};
+
+sort: SORT '[' direction ',' property ',' ignoreCase ',' nullHandling ',' descending ',' ascending ']' {};
+
+totalPages: TOTAL_PAGES POSITIVE_INTEGER {}
+totalElements: TOTAL_ELEMENTS POSITIVE_INTEGER {}
+last2: LAST BOOLEAN {}
+numberOfElements: NUMBER_OF_ELEMENTS POSITIVE_INTEGER {}
+direction: DIRECTION ALPHANUMERIC {}
+property: PROPERTY ID CONTENTOBJECT {}
+ignoreCase: IGNORE_CASE BOOLEAN {}
+nullHandling: NULL_HANDLING ALPHANUMERIC {}
+descending: DESCENDING BOOLEAN {}
+ascending: ASCENDING BOOLEAN{}
+first: FIRST BOOLEAN {}
+size: SIZE POSITIVE_INTEGER {}
+number: NUMBER POSITIVE_INTEGER {}
+
 %%
 
 void yyerror(const char *errmsg)

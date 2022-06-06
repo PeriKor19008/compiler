@@ -81,15 +81,30 @@ extern int yydebug;
     COLUMNS = 282,                 /* COLUMNS  */
     WAGERS = 283,                  /* WAGERS  */
     ADDON = 284,                   /* ADDON  */
-    POSITIVE_INTEGER = 285,        /* POSITIVE_INTEGER  */
-    ALPHANUMERIC = 286,            /* ALPHANUMERIC  */
-    POSITIVE_REAL = 287,           /* POSITIVE_REAL  */
-    ARRAY_POSITIVE_INTEGERS = 288, /* ARRAY_POSITIVE_INTEGERS  */
-    ARRAY_POSITIVE_INTEGER = 289,  /* ARRAY_POSITIVE_INTEGER  */
-    POSITIVE_INTEGER_TWO_TO_EIGHT = 290, /* POSITIVE_INTEGER_TWO_TO_EIGHT  */
-    BOOLEAN = 291,                 /* BOOLEAN  */
-    JSON_ARRAY = 292,              /* JSON_ARRAY  */
-    REAL = 293                     /* REAL  */
+    CONTENT = 285,                 /* CONTENT  */
+    TOTAL_PAGES = 286,             /* TOTAL_PAGES  */
+    TOTAL_ELEMENTS = 287,          /* TOTAL_ELEMENTS  */
+    NUMBER_OF_ELEMENTS = 288,      /* NUMBER_OF_ELEMENTS  */
+    SORT = 289,                    /* SORT  */
+    DIRECTION = 290,               /* DIRECTION  */
+    PROPERTY = 291,                /* PROPERTY  */
+    IGNORE_CASE = 292,             /* IGNORE_CASE  */
+    NULL_HANDLING = 293,           /* NULL_HANDLING  */
+    DESCENDING = 294,              /* DESCENDING  */
+    ASCENDING = 295,               /* ASCENDING  */
+    FIRST = 296,                   /* FIRST  */
+    SIZE = 297,                    /* SIZE  */
+    NUMBER = 298,                  /* NUMBER  */
+    POSITIVE_INTEGER = 299,        /* POSITIVE_INTEGER  */
+    ALPHANUMERIC = 300,            /* ALPHANUMERIC  */
+    POSITIVE_REAL = 301,           /* POSITIVE_REAL  */
+    ARRAY_POSITIVE_INTEGERS = 302, /* ARRAY_POSITIVE_INTEGERS  */
+    ARRAY_POSITIVE_INTEGER = 303,  /* ARRAY_POSITIVE_INTEGER  */
+    POSITIVE_INTEGER_TWO_TO_EIGHT = 304, /* POSITIVE_INTEGER_TWO_TO_EIGHT  */
+    BOOLEAN = 305,                 /* BOOLEAN  */
+    JSON_ARRAY = 306,              /* JSON_ARRAY  */
+    REAL = 307,                    /* REAL  */
+    CONTENTOBJECT = 308            /* CONTENTOBJECT  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -125,15 +140,30 @@ extern int yydebug;
 #define COLUMNS 282
 #define WAGERS 283
 #define ADDON 284
-#define POSITIVE_INTEGER 285
-#define ALPHANUMERIC 286
-#define POSITIVE_REAL 287
-#define ARRAY_POSITIVE_INTEGERS 288
-#define ARRAY_POSITIVE_INTEGER 289
-#define POSITIVE_INTEGER_TWO_TO_EIGHT 290
-#define BOOLEAN 291
-#define JSON_ARRAY 292
-#define REAL 293
+#define CONTENT 285
+#define TOTAL_PAGES 286
+#define TOTAL_ELEMENTS 287
+#define NUMBER_OF_ELEMENTS 288
+#define SORT 289
+#define DIRECTION 290
+#define PROPERTY 291
+#define IGNORE_CASE 292
+#define NULL_HANDLING 293
+#define DESCENDING 294
+#define ASCENDING 295
+#define FIRST 296
+#define SIZE 297
+#define NUMBER 298
+#define POSITIVE_INTEGER 299
+#define ALPHANUMERIC 300
+#define POSITIVE_REAL 301
+#define ARRAY_POSITIVE_INTEGERS 302
+#define ARRAY_POSITIVE_INTEGER 303
+#define POSITIVE_INTEGER_TWO_TO_EIGHT 304
+#define BOOLEAN 305
+#define JSON_ARRAY 306
+#define REAL 307
+#define CONTENTOBJECT 308
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED

@@ -10,11 +10,14 @@
 %locations
 
 //Symbol Tokens
+%token '.'
 %token ','
 %token '{'
 %token '}'
 %token '['
 %token ']'
+%token '-'
+%token '+'
 
 //Identifier Tokens
 %token LAST
@@ -26,7 +29,7 @@
 %token DRAW_BREAK
 %token VISUAL_DRAW
 %token PRICE_POINTS
-%token AMMOUNT
+%token AMOUNT
 %token WINNING_NUMBERS
 %token LIST
 %token BONUS
@@ -59,36 +62,33 @@
 %token FIRST
 %token SIZE
 %token NUMBER
+%token IDONE
+%token CLASSITEM
 
 //Value Tokens
 %token POSITIVE_INTEGER
 %token ALPHANUMERIC
-%token POSITIVE_REAL
-%token ARRAY_POSITIVE_INTEGERS
-%token ARRAY_POSITIVE_INTEGER
 %token POSITIVE_INTEGER_TWO_TO_EIGHT
-%token BOOLEAN
-%token JSON_ARRAY
-%token REAL
-%token '1'
-%token PROPERTY
-%token ID
-%token CONTENTOBJECT
+%token POSITIVE_INTEGER_ZERO_OR_ONE
+%token TRUE
+%token FALSE
 
 %%
 compiler:   '{' last ',' active '}' {printf("The Syntax was Correct!\n");}
 	  | '{' content ',' totalPages ',' totalElements ',' last2 ',' numberOfElements ',' sort ',' first ',' size ',' number '}' {printf("The Syntax was Correct!\n");}
 	  ;
 
-last: LAST {}; //This is temporary
+last: LAST '{'  gameId ',' drawId ',' drawTime ',' status ',' drawBreak ',' visualDraw ',' pricePoints ',' winningNumbers ',' prizeCategories ',' wagerStatistics '}' 
 
-//Below is the correct  entry
-//last: ( LAST '{'  gameId ',' drawId ',' drawTime ',' status ',' drawBreak ',' visualDraw ',' pricePoints ',' winningNumbers ',' prizeCategories ',' wagerStatistics '}' 
+active: ACTIVE '{' gameId ',' drawId ',' drawTime ',' status ',' drawBreak ',' visualDraw ',' pricePoints ',' prizeCategories ',' wagerStatistics '}' {}
 
-active: ACTIVE {}; // This is temporary
-
-// Below is the correct entry
-//active: ACTIVE '{' gameId ',' drawId ',' drawTime ',' status ',' drawBreak ',' visualDraw ',' pricePoints ',' prizeCategories ',' wagerStatistics '}' {}
+positivereal: POSITIVE_INTEGER '.' POSITIVE_INTEGER {}
+real: positivereal | '-' positivereal {}
+arrayint: POSITIVE_INTEGER ','  arrayint | POSITIVE_INTEGER {}
+arrayposints: '[' arrayint ']' {}
+arrayposint: '[' POSITIVE_INTEGER ']' {}
+jsoncontent: ALPHANUMERIC ',' jsoncontent | ALPHANUMERIC {}
+jsonarray: '[' jsoncontent ']' | '[' ']' {}
 
 gameId: GAMEID POSITIVE_INTEGER {}
 drawId: DRAWID POSITIVE_INTEGER {}
@@ -96,43 +96,48 @@ drawTime: DRAW_TIME POSITIVE_INTEGER {}
 status: STATUS ALPHANUMERIC {}
 drawBreak: DRAW_BREAK POSITIVE_INTEGER {}
 visualDraw: VISUAL_DRAW POSITIVE_INTEGER {}
-pricePoints: PRICE_POINTS ammount {}
-ammount: AMMOUNT POSITIVE_REAL {}
+pricePoints: PRICE_POINTS '{' amount '}' {}
+amount: AMOUNT positivereal {}
 winningNumbers: WINNING_NUMBERS '{' list ',' bonus '}' {}
-list: LIST ARRAY_POSITIVE_INTEGERS {}
-bonus: BONUS ARRAY_POSITIVE_INTEGER {}
-prizeCategories: PRIZE_CATEGORIES '[' '1' ',' divident ',' winners ',' distributed ',' jackpot ',' fixed ',' categoryType ',' gameType ',' minimumDistributed ']' {}
-	       | PRIZE_CATEGORIES '[' id ',' divident ',' winners ',' distributed ',' jackpot ',' fixed ',' categoryType ',' gameType ']' {}
+list: LIST arrayposints{}
+bonus: BONUS arrayposint{}
+prizecontent: '{' idone ',' divident ',' winners ',' distributed ',' jackpot ',' fixed ',' categoryType ',' gameType ',' minimumDistributed '}'
+		| '{' id ',' divident ',' winners ',' distributed ',' jackpot ',' fixed ',' categoryType ',' gameType '}'
+prizelisting: prizecontent ',' prizelisting | prizecontent 
+prizeCategories: PRIZE_CATEGORIES '[' prizelisting ']'
+idone: IDONE {}
 id: ID POSITIVE_INTEGER_TWO_TO_EIGHT {}
-divident: DIVIDENT POSITIVE_REAL {}
+divident: DIVIDENT positivereal {}
 winners: WINNERS POSITIVE_INTEGER {}
-distributed: DISTRIBUTED POSITIVE_REAL {}
-jackpot: JACKPOT POSITIVE_REAL {}
-fixed: FIXED POSITIVE_REAL {}
-categoryType: CATEGORY_TYPE BOOLEAN {}
+distributed: DISTRIBUTED positivereal {}
+jackpot: JACKPOT positivereal {}
+fixed: FIXED positivereal {}
+categoryType: CATEGORY_TYPE POSITIVE_INTEGER_ZERO_OR_ONE {}
 gameType: GAMETYPE ALPHANUMERIC {}
-minimumDistributed: MINIMUM_DISTRIBUTED POSITIVE_REAL 
-wagerStatistics: WAGER_STATISTICS '{' columns ',' wagers ',' addOn '}'{}
+minimumDistributed: MINIMUM_DISTRIBUTED positivereal 
+wagerStatistics: WAGER_STATISTICS '{' columns ',' wagers ',' addOn '}' {}
 columns: COLUMNS POSITIVE_INTEGER {}
 wagers: WAGERS POSITIVE_INTEGER {}
-addOn: ADDON JSON_ARRAY {}
+addOn: ADDON jsonarray {}
 
 //Extra exc2 Tokens
-content: CONTENT '[' gameId ',' drawId ',' drawTime ',' status ',' drawBreak ',' visualDraw ',' pricePoints ',' winningNumbers ',' prizeCategories ',' wagerStatistics ']' {};
+contentlisting: '{' gameId ',' drawId ',' drawTime ',' status ',' drawBreak ',' visualDraw ',' pricePoints ',' winningNumbers ',' prizeCategories ',' wagerStatistics '}' ',' contentlisting |  '{' gameId ',' drawId ',' drawTime ',' status ',' drawBreak ',' visualDraw ',' pricePoints ',' winningNumbers ',' prizeCategories ',' wagerStatistics '}' ',' {};
+content: CONTENT '[' contentlisting ']' {} 
 
-sort: SORT '[' direction ',' property ',' ignoreCase ',' nullHandling ',' descending ',' ascending ']' {};
+sort: SORT '[' '{'  direction ',' property ',' ignoreCase ',' nullHandling ',' descending ',' ascending '}' ']' {};
 
 totalPages: TOTAL_PAGES POSITIVE_INTEGER {}
 totalElements: TOTAL_ELEMENTS POSITIVE_INTEGER {}
-last2: LAST BOOLEAN {}
+boolean: TRUE | FALSE {}
+last2: LAST boolean{}
 numberOfElements: NUMBER_OF_ELEMENTS POSITIVE_INTEGER {}
 direction: DIRECTION ALPHANUMERIC {}
-property: PROPERTY ID CONTENTOBJECT {}
-ignoreCase: IGNORE_CASE BOOLEAN {}
+property: PROPERTY CLASSITEM{}
+ignoreCase: IGNORE_CASE boolean {}
 nullHandling: NULL_HANDLING ALPHANUMERIC {}
-descending: DESCENDING BOOLEAN {}
-ascending: ASCENDING BOOLEAN{}
-first: FIRST BOOLEAN {}
+descending: DESCENDING boolean {}
+ascending: ASCENDING boolean{}
+first: FIRST boolean {}
 size: SIZE POSITIVE_INTEGER {}
 number: NUMBER POSITIVE_INTEGER {}
 

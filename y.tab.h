@@ -63,7 +63,7 @@ extern int yydebug;
     DRAW_BREAK = 264,              /* DRAW_BREAK  */
     VISUAL_DRAW = 265,             /* VISUAL_DRAW  */
     PRICE_POINTS = 266,            /* PRICE_POINTS  */
-    AMMOUNT = 267,                 /* AMMOUNT  */
+    AMOUNT = 267,                  /* AMOUNT  */
     WINNING_NUMBERS = 268,         /* WINNING_NUMBERS  */
     LIST = 269,                    /* LIST  */
     BONUS = 270,                   /* BONUS  */
@@ -95,16 +95,14 @@ extern int yydebug;
     FIRST = 296,                   /* FIRST  */
     SIZE = 297,                    /* SIZE  */
     NUMBER = 298,                  /* NUMBER  */
-    POSITIVE_INTEGER = 299,        /* POSITIVE_INTEGER  */
-    ALPHANUMERIC = 300,            /* ALPHANUMERIC  */
-    POSITIVE_REAL = 301,           /* POSITIVE_REAL  */
-    ARRAY_POSITIVE_INTEGERS = 302, /* ARRAY_POSITIVE_INTEGERS  */
-    ARRAY_POSITIVE_INTEGER = 303,  /* ARRAY_POSITIVE_INTEGER  */
-    POSITIVE_INTEGER_TWO_TO_EIGHT = 304, /* POSITIVE_INTEGER_TWO_TO_EIGHT  */
-    BOOLEAN = 305,                 /* BOOLEAN  */
-    JSON_ARRAY = 306,              /* JSON_ARRAY  */
-    REAL = 307,                    /* REAL  */
-    CONTENTOBJECT = 308            /* CONTENTOBJECT  */
+    IDONE = 299,                   /* IDONE  */
+    CLASSITEM = 300,               /* CLASSITEM  */
+    POSITIVE_INTEGER = 301,        /* POSITIVE_INTEGER  */
+    ALPHANUMERIC = 302,            /* ALPHANUMERIC  */
+    POSITIVE_INTEGER_TWO_TO_EIGHT = 303, /* POSITIVE_INTEGER_TWO_TO_EIGHT  */
+    POSITIVE_INTEGER_ZERO_OR_ONE = 304, /* POSITIVE_INTEGER_ZERO_OR_ONE  */
+    TRUE = 305,                    /* TRUE  */
+    FALSE = 306                    /* FALSE  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -122,7 +120,7 @@ extern int yydebug;
 #define DRAW_BREAK 264
 #define VISUAL_DRAW 265
 #define PRICE_POINTS 266
-#define AMMOUNT 267
+#define AMOUNT 267
 #define WINNING_NUMBERS 268
 #define LIST 269
 #define BONUS 270
@@ -154,16 +152,14 @@ extern int yydebug;
 #define FIRST 296
 #define SIZE 297
 #define NUMBER 298
-#define POSITIVE_INTEGER 299
-#define ALPHANUMERIC 300
-#define POSITIVE_REAL 301
-#define ARRAY_POSITIVE_INTEGERS 302
-#define ARRAY_POSITIVE_INTEGER 303
-#define POSITIVE_INTEGER_TWO_TO_EIGHT 304
-#define BOOLEAN 305
-#define JSON_ARRAY 306
-#define REAL 307
-#define CONTENTOBJECT 308
+#define IDONE 299
+#define CLASSITEM 300
+#define POSITIVE_INTEGER 301
+#define ALPHANUMERIC 302
+#define POSITIVE_INTEGER_TWO_TO_EIGHT 303
+#define POSITIVE_INTEGER_ZERO_OR_ONE 304
+#define TRUE 305
+#define FALSE 306
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED

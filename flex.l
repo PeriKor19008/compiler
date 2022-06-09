@@ -1,9 +1,10 @@
 %{
 	#include <stdio.h>
 	#include "y.tab.h"
+	int list_count=0;
 %}
 
-%s ALPHA BETA GAMMA CHECK
+%s ALPHA BETA GAMMA CHECK LISTCHECK
 %option noyywrap yylineno
 digit   [0-9]
 num	{digit}+
@@ -41,7 +42,7 @@ classitem {alphanumeric}\.{alphanumeric}
 "\"pricePoints\":"	{ return PRICE_POINTS; }
 "\"amount\":" 	{ return AMOUNT; }
 "\"winningNumbers\":" 	{ return WINNING_NUMBERS; }	 
-"\"list\":" 	{ return LIST; }
+"\"list\":" 	{ BEGIN(LISTCHECK);return LIST; }
 "\"bonus\":" 	{ return BONUS; }
 "\"prizeCategories\":" 	{ return PRIZE_CATEGORIES; }
 "\"id\":" { BEGIN(BETA); return ID; }
@@ -101,7 +102,30 @@ classitem {alphanumeric}\.{alphanumeric}
 
 }
 
+<LISTCHECK>{
+
+"\n"		{}
+"\,"		{ return ','; }
+{num}		{ yylval = atoi(yytext); list_count++; num_range(yylval);return POSITIVE_INTEGER;}
+"\["		{ return '['; }
+"\]"		{ list_check(list_count);list_count=0;BEGIN(INITIAL);return ']'; }
+
+
+}
+
 %%
+void num_range(int val){
+	if((0<val)&&(val<45))
+		return;
+	printf("in list item thre is value (%d) outside the allowed range",val);
+	return;
+}
+void list_check(int count){
+	if(count==5)
+		return;
+	printf("list embeded JSON items are  %d, not 5 \n",count);
+	return;
+}
 void check (int val){
 	if(val == 1100)
 		return;

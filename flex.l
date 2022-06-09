@@ -3,7 +3,7 @@
 	#include "y.tab.h"
 %}
 
-%s ALPHA BETA GAMMA
+%s ALPHA BETA GAMMA CHECK
 %option noyywrap yylineno
 digit   [0-9]
 num	{digit}+
@@ -32,7 +32,7 @@ classitem {alphanumeric}\.{alphanumeric}
 "\"id\":1"	{ return IDONE; }
 "\"last\":"	{ return LAST; }
 "\"active\":"	{ return ACTIVE; }
-"\"gameId\":" 	{ return GAMEID; }
+"\"gameId\":" 	{ BEGIN(CHECK);return GAMEID; }
 "\"drawId\":"  	{ return DRAWID; }
 "\"drawTime\":" 	{ return DRAW_TIME; }
 "\"status\":"	{ BEGIN(ALPHA); return STATUS; }
@@ -94,5 +94,31 @@ classitem {alphanumeric}\.{alphanumeric}
 {
 	{classitem}	{ BEGIN(INITIAL); return CLASSITEM; }
 }
+<CHECK>{
+
+"\n"		{}
+{num}		{ yylval = atoi(yytext); check(yylval);BEGIN(INITIAL); return POSITIVE_INTEGER;}
+
+}
 
 %%
+void check (int val){
+	if(val == 1100)
+		return;
+	if(val == 1110)
+		return;
+	if(val == 2100)
+		return;
+	if(val == 2101)
+		return;
+	if(val == 5103)
+		return;	
+		
+	if(val == 5104)
+		return;	
+	if(val == 5106)
+		return;	
+		
+	printf("wrong input at gameId");
+		return;
+}

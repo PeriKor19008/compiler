@@ -2436,13 +2436,13 @@ void yyfree (void * ptr )
 void num_range(int val){
 	if((0<val)&&(val<45))
 		return;
-	printf("Error: In List Item There Is Value (%d) Which Is Outside Of The Allowed Range!\n",val);
+	printf("Error! Line %d: In List Item There Is Value (%d) Which Is Outside Of The Allowed Range!\n",yylineno, val);
 	exit(0);
 }
 void list_check(int count){
 	if(count==5)
 		return;
-	printf("Error: List Embeded JSON Items Are  %d, Not 5!\n",count);
+	printf("Error! Line %d: List Embeded JSON Items Are  %d, Not 5!\n",yylineno, count);
 	exit(0);
 }
 void check (int val){
@@ -2462,7 +2462,7 @@ void check (int val){
 	else if(val == 5106)
 		return;	
 		
-	printf("Error: Invalid GameId!\n");
+	printf("Error! Line %d: Invalid GameId!\n", yylineno);
 		exit(0);
 }
 
@@ -2470,7 +2470,7 @@ void checkMaximumPrizeCategories()
 {
 	if(prizeCategoriesCounter > 8)
 	{
-		printf("Error: prizeCategories Has More Than 8 Embedded JSON Objects!\n");
+		printf("Error! Line %d: prizeCategories Has More Than 8 Embedded JSON Objects!\n", yylineno);
 		exit(0);
 	}
 	return;
@@ -2480,7 +2480,7 @@ void checkMinimumPrizeCategories()
 {
 	if(prizeCategoriesCounter < 8)
 	{
-		printf("Error: prizeCategories Has Less Than 8 Embedded JSON Objects!\n");
+		printf("Error! Line %d: prizeCategories Has Less Than 8 Embedded JSON Objects!\n", yylineno);
 		exit(0);
 	}
 	return;

@@ -1,1 +1,5 @@
-to make flex file (**.l) take file input run "./a.out <input.txt"
+To compile the project run the "make" script like this:
+./make
+
+To run the program execute the "compile" executable following the file you want to use like this:
+./compile <name_of_file>

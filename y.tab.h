@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 3.8.2.  */
+/* A Bison parser, made by GNU Bison 3.5.1.  */
 
 /* Bison interface for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2021 Free Software Foundation,
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2020 Free Software Foundation,
    Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
 /* As a special exception, you may create a larger work that contains
    part or all of the Bison parser skeleton and distribute that work
@@ -31,9 +31,8 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-/* DO NOT RELY ON FEATURES THAT ARE NOT DOCUMENTED in the manual,
-   especially those whose name start with YY_ or yy_.  They are
-   private implementation details that can be changed or removed.  */
+/* Undocumented macros, especially those whose name start with YY_,
+   are private implementation details.  Do not rely on them.  */
 
 #ifndef YY_YY_Y_TAB_H_INCLUDED
 # define YY_YY_Y_TAB_H_INCLUDED
@@ -45,72 +44,63 @@
 extern int yydebug;
 #endif
 
-/* Token kinds.  */
+/* Token type.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
   enum yytokentype
   {
-    YYEMPTY = -2,
-    YYEOF = 0,                     /* "end of file"  */
-    YYerror = 256,                 /* error  */
-    YYUNDEF = 257,                 /* "invalid token"  */
-    LAST = 258,                    /* LAST  */
-    ACTIVE = 259,                  /* ACTIVE  */
-    GAMEID = 260,                  /* GAMEID  */
-    DRAWID = 261,                  /* DRAWID  */
-    DRAW_TIME = 262,               /* DRAW_TIME  */
-    STATUS = 263,                  /* STATUS  */
-    DRAW_BREAK = 264,              /* DRAW_BREAK  */
-    VISUAL_DRAW = 265,             /* VISUAL_DRAW  */
-    PRICE_POINTS = 266,            /* PRICE_POINTS  */
-    AMOUNT = 267,                  /* AMOUNT  */
-    WINNING_NUMBERS = 268,         /* WINNING_NUMBERS  */
-    LIST = 269,                    /* LIST  */
-    BONUS = 270,                   /* BONUS  */
-    PRIZE_CATEGORIES = 271,        /* PRIZE_CATEGORIES  */
-    ID = 272,                      /* ID  */
-    DIVIDENT = 273,                /* DIVIDENT  */
-    WINNERS = 274,                 /* WINNERS  */
-    DISTRIBUTED = 275,             /* DISTRIBUTED  */
-    JACKPOT = 276,                 /* JACKPOT  */
-    FIXED = 277,                   /* FIXED  */
-    CATEGORY_TYPE = 278,           /* CATEGORY_TYPE  */
-    GAMETYPE = 279,                /* GAMETYPE  */
-    MINIMUM_DISTRIBUTED = 280,     /* MINIMUM_DISTRIBUTED  */
-    WAGER_STATISTICS = 281,        /* WAGER_STATISTICS  */
-    COLUMNS = 282,                 /* COLUMNS  */
-    WAGERS = 283,                  /* WAGERS  */
-    ADDON = 284,                   /* ADDON  */
-    CONTENT = 285,                 /* CONTENT  */
-    TOTAL_PAGES = 286,             /* TOTAL_PAGES  */
-    TOTAL_ELEMENTS = 287,          /* TOTAL_ELEMENTS  */
-    NUMBER_OF_ELEMENTS = 288,      /* NUMBER_OF_ELEMENTS  */
-    SORT = 289,                    /* SORT  */
-    DIRECTION = 290,               /* DIRECTION  */
-    PROPERTY = 291,                /* PROPERTY  */
-    IGNORE_CASE = 292,             /* IGNORE_CASE  */
-    NULL_HANDLING = 293,           /* NULL_HANDLING  */
-    DESCENDING = 294,              /* DESCENDING  */
-    ASCENDING = 295,               /* ASCENDING  */
-    FIRST = 296,                   /* FIRST  */
-    SIZE = 297,                    /* SIZE  */
-    NUMBER = 298,                  /* NUMBER  */
-    IDONE = 299,                   /* IDONE  */
-    CLASSITEM = 300,               /* CLASSITEM  */
-    POSITIVE_INTEGER = 301,        /* POSITIVE_INTEGER  */
-    ALPHANUMERIC = 302,            /* ALPHANUMERIC  */
-    POSITIVE_INTEGER_TWO_TO_EIGHT = 303, /* POSITIVE_INTEGER_TWO_TO_EIGHT  */
-    POSITIVE_INTEGER_ZERO_OR_ONE = 304, /* POSITIVE_INTEGER_ZERO_OR_ONE  */
-    TRUE = 305,                    /* TRUE  */
-    FALSE = 306                    /* FALSE  */
+    LAST = 258,
+    ACTIVE = 259,
+    GAMEID = 260,
+    DRAWID = 261,
+    DRAW_TIME = 262,
+    STATUS = 263,
+    DRAW_BREAK = 264,
+    VISUAL_DRAW = 265,
+    PRICE_POINTS = 266,
+    AMOUNT = 267,
+    WINNING_NUMBERS = 268,
+    LIST = 269,
+    BONUS = 270,
+    PRIZE_CATEGORIES = 271,
+    ID = 272,
+    DIVIDENT = 273,
+    WINNERS = 274,
+    DISTRIBUTED = 275,
+    JACKPOT = 276,
+    FIXED = 277,
+    CATEGORY_TYPE = 278,
+    GAMETYPE = 279,
+    MINIMUM_DISTRIBUTED = 280,
+    WAGER_STATISTICS = 281,
+    COLUMNS = 282,
+    WAGERS = 283,
+    ADDON = 284,
+    CONTENT = 285,
+    TOTAL_PAGES = 286,
+    TOTAL_ELEMENTS = 287,
+    NUMBER_OF_ELEMENTS = 288,
+    SORT = 289,
+    DIRECTION = 290,
+    PROPERTY = 291,
+    IGNORE_CASE = 292,
+    NULL_HANDLING = 293,
+    DESCENDING = 294,
+    ASCENDING = 295,
+    FIRST = 296,
+    SIZE = 297,
+    NUMBER = 298,
+    IDONE = 299,
+    CLASSITEM = 300,
+    POSITIVE_INTEGER = 301,
+    ALPHANUMERIC = 302,
+    POSITIVE_INTEGER_TWO_TO_EIGHT = 303,
+    POSITIVE_INTEGER_ZERO_OR_ONE = 304,
+    TRUE = 305,
+    FALSE = 306
   };
-  typedef enum yytokentype yytoken_kind_t;
 #endif
-/* Token kinds.  */
-#define YYEMPTY -2
-#define YYEOF 0
-#define YYerror 256
-#define YYUNDEF 257
+/* Tokens.  */
 #define LAST 258
 #define ACTIVE 259
 #define GAMEID 260
@@ -185,8 +175,6 @@ struct YYLTYPE
 
 extern YYSTYPE yylval;
 extern YYLTYPE yylloc;
-
 int yyparse (void);
-
 
 #endif /* !YY_YY_Y_TAB_H_INCLUDED  */

@@ -47,6 +47,7 @@
 %token COLUMNS
 %token WAGERS
 %token ADDON
+
 //Extra exc2 Tokens
 %token CONTENT
 %token TOTAL_PAGES
@@ -74,8 +75,8 @@
 %token FALSE
 
 %%
-compiler:   '{' last ',' active '}' {fprintf(yyout,"The Syntax was Correct!\n");}
-	  | '{' content ',' totalPages ',' totalElements ',' last2 ',' numberOfElements ',' sort ',' first ',' size ',' number '}' {fprintf(yyout,"The Syntax was Correct!\n");}
+compiler:   '{' last ',' active '}' {fprintf(yyout, "\nThe Syntax was Correct!\n");}
+	  | '{' content ',' totalPages ',' totalElements ',' last2 ',' numberOfElements ',' sort ',' first ',' size ',' number '}' {fprintf(yyout, "\nThe Syntax was Correct!\n");}
 	  ;
 
 last: LAST '{'  gameId ',' drawId ',' drawTime ',' status ',' drawBreak ',' visualDraw ',' pricePoints ',' winningNumbers ',' prizeCategories ',' wagerStatistics '}'  {}
@@ -145,7 +146,7 @@ number: NUMBER POSITIVE_INTEGER {}
 
 void yyerror(const char *errmsg)
 {
-	fprintf(yyout, "error in line:  %d\n%s\n", yylineno, errmsg);
+	fprintf(yyout, "\nError in line:  %d\n%s\n", yylineno, errmsg);
 }
 
 int main (int argc, char **argv)

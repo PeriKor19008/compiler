@@ -749,9 +749,11 @@ char *yytext;
 	#include "y.tab.h"
 	int list_count=0;
 	int prizeCategoriesCounter = 0;
-#line 753 "lex.yy.c"
-
+	extern void yyerror(const char *);
+	#define PRINT fwrite (yytext, yyleng, 1, yyout)
 #line 755 "lex.yy.c"
+
+#line 757 "lex.yy.c"
 
 #define INITIAL 0
 #define ALPHA 1
@@ -973,9 +975,9 @@ YY_DECL
 		}
 
 	{
-#line 21 "flex.l"
+#line 23 "flex.l"
 
-#line 979 "lex.yy.c"
+#line 981 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -1045,371 +1047,371 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 24 "flex.l"
+#line 26 "flex.l"
 {}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 25 "flex.l"
-{ return '-'; }
+#line 27 "flex.l"
+{ PRINT; return '-'; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 26 "flex.l"
-{ return '+'; }
+#line 28 "flex.l"
+{ PRINT; return '+'; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 27 "flex.l"
-{ return ','; }
+#line 29 "flex.l"
+{ PRINT; return ','; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 28 "flex.l"
-{ return '{'; }
+#line 30 "flex.l"
+{ PRINT; return '{'; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 29 "flex.l"
-{ return '}'; }
+#line 31 "flex.l"
+{ PRINT; return '}'; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 30 "flex.l"
-{ return '['; }
+#line 32 "flex.l"
+{ PRINT; return '['; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 31 "flex.l"
-{ return ']'; }
+#line 33 "flex.l"
+{ PRINT; return ']'; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 32 "flex.l"
-{ return '.'; }
+#line 34 "flex.l"
+{ PRINT; return '.'; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 33 "flex.l"
-{ return IDONE; }
+#line 35 "flex.l"
+{ PRINT; return IDONE; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 34 "flex.l"
-{ return IDONE; }
+#line 36 "flex.l"
+{ PRINT; return IDONE; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 35 "flex.l"
-{ return LAST; }
+#line 37 "flex.l"
+{ PRINT; return LAST; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 36 "flex.l"
-{ return ACTIVE; }
+#line 38 "flex.l"
+{ PRINT; return ACTIVE; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 37 "flex.l"
-{ BEGIN(CHECK);return GAMEID; }
+#line 39 "flex.l"
+{ BEGIN(CHECK); PRINT; return GAMEID; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 38 "flex.l"
-{ return DRAWID; }
+#line 40 "flex.l"
+{ PRINT; return DRAWID; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 39 "flex.l"
-{ return DRAW_TIME; }
+#line 41 "flex.l"
+{ PRINT; return DRAW_TIME; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 40 "flex.l"
-{ BEGIN(ALPHA); return STATUS; }
+#line 42 "flex.l"
+{ BEGIN(ALPHA); PRINT; return STATUS; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 41 "flex.l"
-{ return DRAW_BREAK; }
+#line 43 "flex.l"
+{ PRINT; return DRAW_BREAK; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 42 "flex.l"
-{ return VISUAL_DRAW; }    
+#line 44 "flex.l"
+{ PRINT; return VISUAL_DRAW; }    
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 43 "flex.l"
-{ return PRICE_POINTS; }
+#line 45 "flex.l"
+{ PRINT; return PRICE_POINTS; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 44 "flex.l"
-{ return AMOUNT; }
+#line 46 "flex.l"
+{ PRINT; return AMOUNT; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 45 "flex.l"
-{ return WINNING_NUMBERS; }	 
+#line 47 "flex.l"
+{ PRINT; return WINNING_NUMBERS; }	 
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 46 "flex.l"
-{ BEGIN(LISTCHECK);return LIST; }
+#line 48 "flex.l"
+{ BEGIN(LISTCHECK); PRINT; return LIST; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 47 "flex.l"
-{ return BONUS; }
+#line 49 "flex.l"
+{ PRINT; return BONUS; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 48 "flex.l"
-{ prizeCategoriesCounter = 0; return PRIZE_CATEGORIES; }
+#line 50 "flex.l"
+{ prizeCategoriesCounter = 0; PRINT; return PRIZE_CATEGORIES; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 49 "flex.l"
-{ BEGIN(BETA); return ID; }
+#line 51 "flex.l"
+{ BEGIN(BETA); PRINT; return ID; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 50 "flex.l"
-{ prizeCategoriesCounter++; checkMaximumPrizeCategories(); return DIVIDENT; }
+#line 52 "flex.l"
+{ prizeCategoriesCounter++; checkMaximumPrizeCategories(); PRINT; return DIVIDENT; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 51 "flex.l"
-{ return WINNERS; }
+#line 53 "flex.l"
+{ PRINT; return WINNERS; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 52 "flex.l"
-{ return DISTRIBUTED; }
+#line 54 "flex.l"
+{ PRINT; return DISTRIBUTED; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 53 "flex.l"
-{ return JACKPOT; }
+#line 55 "flex.l"
+{ PRINT; return JACKPOT; }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 54 "flex.l"
-{ return FIXED; }
+#line 56 "flex.l"
+{ PRINT; return FIXED; }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 55 "flex.l"
-{ BEGIN(BETA); return CATEGORY_TYPE; }
+#line 57 "flex.l"
+{ BEGIN(BETA); PRINT; return CATEGORY_TYPE; }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 56 "flex.l"
-{ BEGIN(ALPHA); return GAMETYPE; }
+#line 58 "flex.l"
+{ BEGIN(ALPHA); PRINT; return GAMETYPE; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 57 "flex.l"
-{ return MINIMUM_DISTRIBUTED; }
+#line 59 "flex.l"
+{ PRINT; return MINIMUM_DISTRIBUTED; }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 58 "flex.l"
-{ checkMinimumPrizeCategories(); return WAGER_STATISTICS; }
+#line 60 "flex.l"
+{ checkMinimumPrizeCategories(); PRINT; return WAGER_STATISTICS; }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 59 "flex.l"
-{ return COLUMNS; }
+#line 61 "flex.l"
+{ PRINT; return COLUMNS; }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 60 "flex.l"
-{ return WAGERS; }
+#line 62 "flex.l"
+{ PRINT; return WAGERS; }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 61 "flex.l"
-{ BEGIN(ALPHA);  return ADDON; }
+#line 63 "flex.l"
+{ BEGIN(ALPHA); PRINT; return ADDON; }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 62 "flex.l"
-{ yylval = atoi(yytext); return POSITIVE_INTEGER; }
+#line 64 "flex.l"
+{ yylval = atoi(yytext); PRINT; return POSITIVE_INTEGER; }
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 63 "flex.l"
-{return CONTENT;}
+#line 65 "flex.l"
+{ PRINT; return CONTENT;}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 64 "flex.l"
-{return SORT;}
+#line 66 "flex.l"
+{ PRINT; return SORT;}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 65 "flex.l"
-{return TOTAL_PAGES;}
+#line 67 "flex.l"
+{ PRINT; return TOTAL_PAGES;}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 66 "flex.l"
-{return TOTAL_ELEMENTS;}
+#line 68 "flex.l"
+{ PRINT; return TOTAL_ELEMENTS;}
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 67 "flex.l"
-{return LAST;}
+#line 69 "flex.l"
+{ PRINT; return LAST;}
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 68 "flex.l"
-{return NUMBER_OF_ELEMENTS;}
+#line 70 "flex.l"
+{ PRINT; return NUMBER_OF_ELEMENTS;}
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 69 "flex.l"
-{ BEGIN(ALPHA); return DIRECTION;}
+#line 71 "flex.l"
+{ BEGIN(ALPHA); PRINT; return DIRECTION;}
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 70 "flex.l"
-{ BEGIN(GAMMA); return PROPERTY;}
+#line 72 "flex.l"
+{ BEGIN(GAMMA); PRINT; return PROPERTY;}
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 71 "flex.l"
-{return IGNORE_CASE;}
+#line 73 "flex.l"
+{ PRINT; return IGNORE_CASE;}
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 72 "flex.l"
-{ BEGIN(ALPHA); return NULL_HANDLING;}
+#line 74 "flex.l"
+{ BEGIN(ALPHA); PRINT; return NULL_HANDLING;}
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 73 "flex.l"
-{return DESCENDING;}
+#line 75 "flex.l"
+{ PRINT; return DESCENDING;}
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 74 "flex.l"
-{return ASCENDING;}
+#line 76 "flex.l"
+{ PRINT; return ASCENDING;}
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 75 "flex.l"
-{return FIRST;}
+#line 77 "flex.l"
+{ PRINT; return FIRST;}
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 76 "flex.l"
-{return SIZE;}
+#line 78 "flex.l"
+{ PRINT; return SIZE;}
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 77 "flex.l"
-{return NUMBER;}
+#line 79 "flex.l"
+{ PRINT; return NUMBER;}
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 78 "flex.l"
-{ return TRUE; }
+#line 80 "flex.l"
+{ PRINT; return TRUE; }
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 79 "flex.l"
-{ return FALSE; }
+#line 81 "flex.l"
+{ PRINT; return FALSE; }
 	YY_BREAK
 
 
 
 case 57:
 YY_RULE_SETUP
-#line 84 "flex.l"
-{ return '['; }
+#line 86 "flex.l"
+{ PRINT; return '['; }
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 85 "flex.l"
-{ BEGIN(INITIAL); return ']'; }
+#line 87 "flex.l"
+{ BEGIN(INITIAL); PRINT; return ']'; }
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 86 "flex.l"
-{ BEGIN(INITIAL); return  ALPHANUMERIC; }
+#line 88 "flex.l"
+{ BEGIN(INITIAL); PRINT; return  ALPHANUMERIC; }
 	YY_BREAK
 
 
 
 case 60:
 YY_RULE_SETUP
-#line 91 "flex.l"
-{ BEGIN(INITIAL); return POSITIVE_INTEGER_ZERO_OR_ONE; }
+#line 93 "flex.l"
+{ BEGIN(INITIAL); PRINT; return POSITIVE_INTEGER_ZERO_OR_ONE; }
 	YY_BREAK
 case 61:
 YY_RULE_SETUP
-#line 92 "flex.l"
-{ BEGIN(INITIAL); return POSITIVE_INTEGER_TWO_TO_EIGHT;}
+#line 94 "flex.l"
+{ BEGIN(INITIAL); PRINT; return POSITIVE_INTEGER_TWO_TO_EIGHT;}
 	YY_BREAK
 
 
 
 case 62:
 YY_RULE_SETUP
-#line 97 "flex.l"
-{ BEGIN(INITIAL); return CLASSITEM; }
+#line 99 "flex.l"
+{ BEGIN(INITIAL); PRINT; return CLASSITEM; }
 	YY_BREAK
 
 
 case 63:
 /* rule 63 can match eol */
 YY_RULE_SETUP
-#line 101 "flex.l"
+#line 103 "flex.l"
 {}
 	YY_BREAK
 case 64:
 YY_RULE_SETUP
-#line 102 "flex.l"
-{ yylval = atoi(yytext); check(yylval);BEGIN(INITIAL); return POSITIVE_INTEGER;}
+#line 104 "flex.l"
+{ yylval = atoi(yytext); check(yylval); BEGIN(INITIAL); PRINT; return POSITIVE_INTEGER;}
 	YY_BREAK
 
 
 case 65:
 /* rule 65 can match eol */
 YY_RULE_SETUP
-#line 108 "flex.l"
+#line 110 "flex.l"
 {}
 	YY_BREAK
 case 66:
 YY_RULE_SETUP
-#line 109 "flex.l"
-{ return ','; }
+#line 111 "flex.l"
+{ PRINT; return ','; }
 	YY_BREAK
 case 67:
 YY_RULE_SETUP
-#line 110 "flex.l"
-{ yylval = atoi(yytext); list_count++; num_range(yylval);return POSITIVE_INTEGER;}
+#line 112 "flex.l"
+{ yylval = atoi(yytext); list_count++; num_range(yylval); PRINT; return POSITIVE_INTEGER;}
 	YY_BREAK
 case 68:
 YY_RULE_SETUP
-#line 111 "flex.l"
-{ return '['; }
+#line 113 "flex.l"
+{ PRINT; return '['; }
 	YY_BREAK
 case 69:
 YY_RULE_SETUP
-#line 112 "flex.l"
-{ list_check(list_count);list_count=0;BEGIN(INITIAL);return ']'; }
+#line 114 "flex.l"
+{ list_check(list_count);list_count=0; BEGIN(INITIAL); PRINT; return ']'; }
 	YY_BREAK
 
 case 70:
 YY_RULE_SETUP
-#line 117 "flex.l"
+#line 119 "flex.l"
 ECHO;
 	YY_BREAK
-#line 1413 "lex.yy.c"
+#line 1415 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(ALPHA):
 case YY_STATE_EOF(BETA):
@@ -2431,18 +2433,18 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 117 "flex.l"
+#line 119 "flex.l"
 
 void num_range(int val){
 	if((0<val)&&(val<45))
 		return;
-	printf("Error! Line %d: In List Item There Is Value (%d) Which Is Outside Of The Allowed Range!\n",yylineno, val);
+	fprintf(yyout,"\nError: In List Item There Is Value (%d) Which Is Outside Of The Allowed Range!\n",val);
 	exit(0);
 }
 void list_check(int count){
 	if(count==5)
 		return;
-	printf("Error! Line %d: List Embeded JSON Items Are  %d, Not 5!\n",yylineno, count);
+	fprintf(yyout, "\nError: List Embeded JSON Items Are  %d, Not 5!\n",count);
 	exit(0);
 }
 void check (int val){
@@ -2462,7 +2464,7 @@ void check (int val){
 	else if(val == 5106)
 		return;	
 		
-	printf("Error! Line %d: Invalid GameId!\n", yylineno);
+	fprintf(yyout, "\nError: Invalid GameId!\n");
 		exit(0);
 }
 
@@ -2470,7 +2472,7 @@ void checkMaximumPrizeCategories()
 {
 	if(prizeCategoriesCounter > 8)
 	{
-		printf("Error! Line %d: prizeCategories Has More Than 8 Embedded JSON Objects!\n", yylineno);
+		fprintf(yyout, "\nError: prizeCategories Has More Than 8 Embedded JSON Objects!\n");
 		exit(0);
 	}
 	return;
@@ -2480,7 +2482,7 @@ void checkMinimumPrizeCategories()
 {
 	if(prizeCategoriesCounter < 8)
 	{
-		printf("Error! Line %d: prizeCategories Has Less Than 8 Embedded JSON Objects!\n", yylineno);
+		fprintf(yyout, "\nError: prizeCategories Has Less Than 8 Embedded JSON Objects!\n");
 		exit(0);
 	}
 	return;

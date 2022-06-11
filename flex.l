@@ -3,6 +3,8 @@
 	#include "y.tab.h"
 	int list_count=0;
 	int prizeCategoriesCounter = 0;
+	extern void yyerror(const char *);
+	#define PRINT fwrite (yytext, yyleng, 1, yyout)
 %}
 
 %s ALPHA BETA GAMMA CHECK LISTCHECK
@@ -22,94 +24,94 @@ classitem {alphanumeric}\.{alphanumeric}
 <INITIAL>
 {
 "\n"		{}
-"\-" 		{ return '-'; }
-"\+"		{ return '+'; }
-"\,"		{ return ','; }
-"\{"		{ return '{'; }
-"\}"		{ return '}'; }
-"\["		{ return '['; }
-"\]"		{ return ']'; }
-"\."		{ return '.'; }
-"\"id\": 1"	{ return IDONE; }
-"\"id\":1"	{ return IDONE; }
-"\"last\":"	{ return LAST; }
-"\"active\":"	{ return ACTIVE; }
-"\"gameId\":" 	{ BEGIN(CHECK);return GAMEID; }
-"\"drawId\":"  	{ return DRAWID; }
-"\"drawTime\":" 	{ return DRAW_TIME; }
-"\"status\":"	{ BEGIN(ALPHA); return STATUS; }
-"\"drawBreak\":"	{ return DRAW_BREAK; }
-"\"visualDraw\":"	{ return VISUAL_DRAW; }    
-"\"pricePoints\":"	{ return PRICE_POINTS; }
-"\"amount\":" 	{ return AMOUNT; }
-"\"winningNumbers\":" 	{ return WINNING_NUMBERS; }	 
-"\"list\":" 	{ BEGIN(LISTCHECK);return LIST; }
-"\"bonus\":" 	{ return BONUS; }
-"\"prizeCategories\":" 	{ prizeCategoriesCounter = 0; return PRIZE_CATEGORIES; }
-"\"id\":" { BEGIN(BETA); return ID; }
-"\"divident\":" 	{ prizeCategoriesCounter++; checkMaximumPrizeCategories(); return DIVIDENT; }
-"\"winners\":" 	{ return WINNERS; }
-"\"distributed\":"  	{ return DISTRIBUTED; }
-"\"jackpot\":" 	{ return JACKPOT; }
-"\"fixed\":" 	{ return FIXED; }
-"\"categoryType\":" 	{ BEGIN(BETA); return CATEGORY_TYPE; }
-"\"gameType\":"	{ BEGIN(ALPHA); return GAMETYPE; }
-"\"minimumDistributed\":"   { return MINIMUM_DISTRIBUTED; }
-"\"wagerStatistics\":"  	{ checkMinimumPrizeCategories(); return WAGER_STATISTICS; }
-"\"columns\":"	{ return COLUMNS; }
-"\"wagers\":"	{ return WAGERS; }
-"\"addOn\":"	{ BEGIN(ALPHA);  return ADDON; }
-{num}		{ yylval = atoi(yytext); return POSITIVE_INTEGER; }
-"\"content\":"	{return CONTENT;}
-"\"sort\":"	{return SORT;}
-"\"totalPages\":"	{return TOTAL_PAGES;}
-"\"totalElements\":"	{return TOTAL_ELEMENTS;}
-"\"last2\":"	{return LAST;}
-"\"numberOfElements\":"	{return NUMBER_OF_ELEMENTS;}
-"\"direction\":"	{ BEGIN(ALPHA); return DIRECTION;}
-"\"property\":"		{ BEGIN(GAMMA); return PROPERTY;}
-"\"ignoreCase\":"	{return IGNORE_CASE;}
-"\"nullHandling\":"	{ BEGIN(ALPHA); return NULL_HANDLING;}
-"\"descending\":"	{return DESCENDING;}
-"\"ascending\":"	{return ASCENDING;}
-"\"first\":"		{return FIRST;}
-"\"size\":"		{return SIZE;}
-"\"number\":"		{return NUMBER;}
-"true"			{ return TRUE; }
-"false"			{ return FALSE; }
+"\-" 		{ PRINT; return '-'; }
+"\+"		{ PRINT; return '+'; }
+"\,"		{ PRINT; return ','; }
+"\{"		{ PRINT; return '{'; }
+"\}"		{ PRINT; return '}'; }
+"\["		{ PRINT; return '['; }
+"\]"		{ PRINT; return ']'; }
+"\."		{ PRINT; return '.'; }
+"\"id\": 1"	{ PRINT; return IDONE; }
+"\"id\":1"	{ PRINT; return IDONE; }
+"\"last\":"	{ PRINT; return LAST; }
+"\"active\":"	{ PRINT; return ACTIVE; }
+"\"gameId\":" 	{ BEGIN(CHECK); PRINT; return GAMEID; }
+"\"drawId\":"  	{ PRINT; return DRAWID; }
+"\"drawTime\":" 	{ PRINT; return DRAW_TIME; }
+"\"status\":"	{ BEGIN(ALPHA); PRINT; return STATUS; }
+"\"drawBreak\":"	{ PRINT; return DRAW_BREAK; }
+"\"visualDraw\":"	{ PRINT; return VISUAL_DRAW; }    
+"\"pricePoints\":"	{ PRINT; return PRICE_POINTS; }
+"\"amount\":" 	{ PRINT; return AMOUNT; }
+"\"winningNumbers\":" 	{ PRINT; return WINNING_NUMBERS; }	 
+"\"list\":" 	{ BEGIN(LISTCHECK); PRINT; return LIST; }
+"\"bonus\":" 	{ PRINT; return BONUS; }
+"\"prizeCategories\":" 	{ prizeCategoriesCounter = 0; PRINT; return PRIZE_CATEGORIES; }
+"\"id\":" { BEGIN(BETA); PRINT; return ID; }
+"\"divident\":" 	{ prizeCategoriesCounter++; checkMaximumPrizeCategories(); PRINT; return DIVIDENT; }
+"\"winners\":" 	{ PRINT; return WINNERS; }
+"\"distributed\":"  	{ PRINT; return DISTRIBUTED; }
+"\"jackpot\":" 	{ PRINT; return JACKPOT; }
+"\"fixed\":" 	{ PRINT; return FIXED; }
+"\"categoryType\":" 	{ BEGIN(BETA); PRINT; return CATEGORY_TYPE; }
+"\"gameType\":"	{ BEGIN(ALPHA); PRINT; return GAMETYPE; }
+"\"minimumDistributed\":"   { PRINT; return MINIMUM_DISTRIBUTED; }
+"\"wagerStatistics\":"  	{ checkMinimumPrizeCategories(); PRINT; return WAGER_STATISTICS; }
+"\"columns\":"	{ PRINT; return COLUMNS; }
+"\"wagers\":"	{ PRINT; return WAGERS; }
+"\"addOn\":"	{ BEGIN(ALPHA); PRINT; return ADDON; }
+{num}		{ yylval = atoi(yytext); PRINT; return POSITIVE_INTEGER; }
+"\"content\":"	{ PRINT; return CONTENT;}
+"\"sort\":"	{ PRINT; return SORT;}
+"\"totalPages\":"	{ PRINT; return TOTAL_PAGES;}
+"\"totalElements\":"	{ PRINT; return TOTAL_ELEMENTS;}
+"\"last2\":"	{ PRINT; return LAST;}
+"\"numberOfElements\":"	{ PRINT; return NUMBER_OF_ELEMENTS;}
+"\"direction\":"	{ BEGIN(ALPHA); PRINT; return DIRECTION;}
+"\"property\":"		{ BEGIN(GAMMA); PRINT; return PROPERTY;}
+"\"ignoreCase\":"	{ PRINT; return IGNORE_CASE;}
+"\"nullHandling\":"	{ BEGIN(ALPHA); PRINT; return NULL_HANDLING;}
+"\"descending\":"	{ PRINT; return DESCENDING;}
+"\"ascending\":"	{ PRINT; return ASCENDING;}
+"\"first\":"		{ PRINT; return FIRST;}
+"\"size\":"		{ PRINT; return SIZE;}
+"\"number\":"		{ PRINT; return NUMBER;}
+"true"			{ PRINT; return TRUE; }
+"false"			{ PRINT; return FALSE; }
 }
 
 <ALPHA>
 {
-	"\["		{ return '['; }
-	"\]"		{ BEGIN(INITIAL); return ']'; }
-	{alphanumeric}	{ BEGIN(INITIAL); return  ALPHANUMERIC; }
+	"\["		{ PRINT; return '['; }
+	"\]"		{ BEGIN(INITIAL); PRINT; return ']'; }
+	{alphanumeric}	{ BEGIN(INITIAL); PRINT; return  ALPHANUMERIC; }
 }
 
 <BETA>
 {
-	{zeroone}	{ BEGIN(INITIAL); return POSITIVE_INTEGER_ZERO_OR_ONE; }
-	{twotoeight}	{ BEGIN(INITIAL); return POSITIVE_INTEGER_TWO_TO_EIGHT;}
+	{zeroone}	{ BEGIN(INITIAL); PRINT; return POSITIVE_INTEGER_ZERO_OR_ONE; }
+	{twotoeight}	{ BEGIN(INITIAL); PRINT; return POSITIVE_INTEGER_TWO_TO_EIGHT;}
 }
 
 <GAMMA>
 {
-	{classitem}	{ BEGIN(INITIAL); return CLASSITEM; }
+	{classitem}	{ BEGIN(INITIAL); PRINT; return CLASSITEM; }
 }
 <CHECK>{
 
 "\n"		{}
-{num}		{ yylval = atoi(yytext); check(yylval);BEGIN(INITIAL); return POSITIVE_INTEGER;}
+{num}		{ yylval = atoi(yytext); check(yylval); BEGIN(INITIAL); PRINT; return POSITIVE_INTEGER;}
 
 }
 
 <LISTCHECK>{
 
 "\n"		{}
-"\,"		{ return ','; }
-{num}		{ yylval = atoi(yytext); list_count++; num_range(yylval);return POSITIVE_INTEGER;}
-"\["		{ return '['; }
-"\]"		{ list_check(list_count);list_count=0;BEGIN(INITIAL);return ']'; }
+"\,"		{ PRINT; return ','; }
+{num}		{ yylval = atoi(yytext); list_count++; num_range(yylval); PRINT; return POSITIVE_INTEGER;}
+"\["		{ PRINT; return '['; }
+"\]"		{ list_check(list_count);list_count=0; BEGIN(INITIAL); PRINT; return ']'; }
 
 
 }
@@ -118,13 +120,13 @@ classitem {alphanumeric}\.{alphanumeric}
 void num_range(int val){
 	if((0<val)&&(val<45))
 		return;
-	printf("Error! Line %d: In List Item There Is Value (%d) Which Is Outside Of The Allowed Range!\n",yylineno, val);
+	fprintf(yyout,"\nError: In List Item There Is Value (%d) Which Is Outside Of The Allowed Range!\n",val);
 	exit(0);
 }
 void list_check(int count){
 	if(count==5)
 		return;
-	printf("Error! Line %d: List Embeded JSON Items Are  %d, Not 5!\n",yylineno, count);
+	fprintf(yyout, "\nError: List Embeded JSON Items Are  %d, Not 5!\n",count);
 	exit(0);
 }
 void check (int val){
@@ -144,7 +146,7 @@ void check (int val){
 	else if(val == 5106)
 		return;	
 		
-	printf("Error! Line %d: Invalid GameId!\n", yylineno);
+	fprintf(yyout, "\nError: Invalid GameId!\n");
 		exit(0);
 }
 
@@ -152,7 +154,7 @@ void checkMaximumPrizeCategories()
 {
 	if(prizeCategoriesCounter > 8)
 	{
-		printf("Error! Line %d: prizeCategories Has More Than 8 Embedded JSON Objects!\n", yylineno);
+		fprintf(yyout, "\nError: prizeCategories Has More Than 8 Embedded JSON Objects!\n");
 		exit(0);
 	}
 	return;
@@ -162,7 +164,7 @@ void checkMinimumPrizeCategories()
 {
 	if(prizeCategoriesCounter < 8)
 	{
-		printf("Error! Line %d: prizeCategories Has Less Than 8 Embedded JSON Objects!\n", yylineno);
+		fprintf(yyout, "\nError: prizeCategories Has Less Than 8 Embedded JSON Objects!\n");
 		exit(0);
 	}
 	return;

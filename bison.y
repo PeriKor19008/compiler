@@ -78,7 +78,7 @@ compiler:   '{' last ',' active '}' {printf("The Syntax was Correct!\n");}
 	  | '{' content ',' totalPages ',' totalElements ',' last2 ',' numberOfElements ',' sort ',' first ',' size ',' number '}' {printf("The Syntax was Correct!\n");}
 	  ;
 
-last: LAST '{'  gameId ',' drawId ',' drawTime ',' status ',' drawBreak ',' visualDraw ',' pricePoints ',' winningNumbers ',' prizeCategories ',' wagerStatistics '}' 
+last: LAST '{'  gameId ',' drawId ',' drawTime ',' status ',' drawBreak ',' visualDraw ',' pricePoints ',' winningNumbers ',' prizeCategories ',' wagerStatistics '}'  {}
 
 active: ACTIVE '{' gameId ',' drawId ',' drawTime ',' status ',' drawBreak ',' visualDraw ',' pricePoints ',' prizeCategories ',' wagerStatistics '}' {}
 
@@ -102,9 +102,9 @@ winningNumbers: WINNING_NUMBERS '{' list ',' bonus '}' {}
 list: LIST arrayposints{}
 bonus: BONUS arrayposint{}
 prizecontent: '{' idone ',' divident ',' winners ',' distributed ',' jackpot ',' fixed ',' categoryType ',' gameType ',' minimumDistributed '}'
-		| '{' id ',' divident ',' winners ',' distributed ',' jackpot ',' fixed ',' categoryType ',' gameType '}'
+		| '{' id ',' divident ',' winners ',' distributed ',' jackpot ',' fixed ',' categoryType ',' gameType '}' {}
 prizelisting: prizecontent ',' prizelisting | prizecontent 
-prizeCategories: PRIZE_CATEGORIES '[' prizelisting ']'
+prizeCategories: PRIZE_CATEGORIES '[' prizelisting ']' {}
 idone: IDONE {}
 id: ID POSITIVE_INTEGER_TWO_TO_EIGHT {}
 divident: DIVIDENT positivereal {}

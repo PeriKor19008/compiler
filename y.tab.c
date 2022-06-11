@@ -1889,296 +1889,314 @@ yyreduce:
 #line 1890 "y.tab.c"
     break;
 
+  case 4: /* last: LAST '{' gameId ',' drawId ',' drawTime ',' status ',' drawBreak ',' visualDraw ',' pricePoints ',' winningNumbers ',' prizeCategories ',' wagerStatistics '}'  */
+#line 81 "bison.y"
+                                                                                                                                                                       {}
+#line 1896 "y.tab.c"
+    break;
+
   case 5: /* active: ACTIVE '{' gameId ',' drawId ',' drawTime ',' status ',' drawBreak ',' visualDraw ',' pricePoints ',' prizeCategories ',' wagerStatistics '}'  */
 #line 83 "bison.y"
                                                                                                                                                       {}
-#line 1896 "y.tab.c"
+#line 1902 "y.tab.c"
     break;
 
   case 6: /* positivereal: POSITIVE_INTEGER '.' POSITIVE_INTEGER  */
 #line 85 "bison.y"
                                                     {}
-#line 1902 "y.tab.c"
+#line 1908 "y.tab.c"
     break;
 
   case 8: /* arrayint: POSITIVE_INTEGER  */
 #line 87 "bison.y"
                                                             {}
-#line 1908 "y.tab.c"
+#line 1914 "y.tab.c"
     break;
 
   case 9: /* arrayposints: '[' arrayint ']'  */
 #line 88 "bison.y"
                                {}
-#line 1914 "y.tab.c"
+#line 1920 "y.tab.c"
     break;
 
   case 10: /* arrayposint: '[' POSITIVE_INTEGER ']'  */
 #line 89 "bison.y"
                                       {}
-#line 1920 "y.tab.c"
+#line 1926 "y.tab.c"
     break;
 
   case 12: /* jsoncontent: ALPHANUMERIC  */
 #line 90 "bison.y"
                                                          {}
-#line 1926 "y.tab.c"
+#line 1932 "y.tab.c"
     break;
 
   case 14: /* jsonarray: '[' ']'  */
 #line 91 "bison.y"
                                          {}
-#line 1932 "y.tab.c"
+#line 1938 "y.tab.c"
     break;
 
   case 15: /* gameId: GAMEID POSITIVE_INTEGER  */
 #line 93 "bison.y"
                                 {}
-#line 1938 "y.tab.c"
+#line 1944 "y.tab.c"
     break;
 
   case 16: /* drawId: DRAWID POSITIVE_INTEGER  */
 #line 94 "bison.y"
                                 {}
-#line 1944 "y.tab.c"
+#line 1950 "y.tab.c"
     break;
 
   case 17: /* drawTime: DRAW_TIME POSITIVE_INTEGER  */
 #line 95 "bison.y"
                                      {}
-#line 1950 "y.tab.c"
+#line 1956 "y.tab.c"
     break;
 
   case 18: /* status: STATUS ALPHANUMERIC  */
 #line 96 "bison.y"
                             {}
-#line 1956 "y.tab.c"
+#line 1962 "y.tab.c"
     break;
 
   case 19: /* drawBreak: DRAW_BREAK POSITIVE_INTEGER  */
 #line 97 "bison.y"
                                        {}
-#line 1962 "y.tab.c"
+#line 1968 "y.tab.c"
     break;
 
   case 20: /* visualDraw: VISUAL_DRAW POSITIVE_INTEGER  */
 #line 98 "bison.y"
                                          {}
-#line 1968 "y.tab.c"
+#line 1974 "y.tab.c"
     break;
 
   case 21: /* pricePoints: PRICE_POINTS '{' amount '}'  */
 #line 99 "bison.y"
                                          {}
-#line 1974 "y.tab.c"
+#line 1980 "y.tab.c"
     break;
 
   case 22: /* amount: AMOUNT positivereal  */
 #line 100 "bison.y"
                             {}
-#line 1980 "y.tab.c"
+#line 1986 "y.tab.c"
     break;
 
   case 23: /* winningNumbers: WINNING_NUMBERS '{' list ',' bonus '}'  */
 #line 101 "bison.y"
                                                        {}
-#line 1986 "y.tab.c"
+#line 1992 "y.tab.c"
     break;
 
   case 24: /* list: LIST arrayposints  */
 #line 102 "bison.y"
                        {}
-#line 1992 "y.tab.c"
+#line 1998 "y.tab.c"
     break;
 
   case 25: /* bonus: BONUS arrayposint  */
 #line 103 "bison.y"
                         {}
-#line 1998 "y.tab.c"
+#line 2004 "y.tab.c"
+    break;
+
+  case 27: /* prizecontent: '{' id ',' divident ',' winners ',' distributed ',' jackpot ',' fixed ',' categoryType ',' gameType '}'  */
+#line 105 "bison.y"
+                                                                                                                          {}
+#line 2010 "y.tab.c"
+    break;
+
+  case 30: /* prizeCategories: PRIZE_CATEGORIES '[' prizelisting ']'  */
+#line 107 "bison.y"
+                                                       {}
+#line 2016 "y.tab.c"
     break;
 
   case 31: /* idone: IDONE  */
 #line 108 "bison.y"
              {}
-#line 2004 "y.tab.c"
+#line 2022 "y.tab.c"
     break;
 
   case 32: /* id: ID POSITIVE_INTEGER_TWO_TO_EIGHT  */
 #line 109 "bison.y"
                                      {}
-#line 2010 "y.tab.c"
+#line 2028 "y.tab.c"
     break;
 
   case 33: /* divident: DIVIDENT positivereal  */
 #line 110 "bison.y"
                                 {}
-#line 2016 "y.tab.c"
+#line 2034 "y.tab.c"
     break;
 
   case 34: /* winners: WINNERS POSITIVE_INTEGER  */
 #line 111 "bison.y"
                                   {}
-#line 2022 "y.tab.c"
+#line 2040 "y.tab.c"
     break;
 
   case 35: /* distributed: DISTRIBUTED positivereal  */
 #line 112 "bison.y"
                                       {}
-#line 2028 "y.tab.c"
+#line 2046 "y.tab.c"
     break;
 
   case 36: /* jackpot: JACKPOT positivereal  */
 #line 113 "bison.y"
                               {}
-#line 2034 "y.tab.c"
+#line 2052 "y.tab.c"
     break;
 
   case 37: /* fixed: FIXED positivereal  */
 #line 114 "bison.y"
                           {}
-#line 2040 "y.tab.c"
+#line 2058 "y.tab.c"
     break;
 
   case 38: /* categoryType: CATEGORY_TYPE POSITIVE_INTEGER_ZERO_OR_ONE  */
 #line 115 "bison.y"
                                                          {}
-#line 2046 "y.tab.c"
+#line 2064 "y.tab.c"
     break;
 
   case 39: /* gameType: GAMETYPE ALPHANUMERIC  */
 #line 116 "bison.y"
                                 {}
-#line 2052 "y.tab.c"
+#line 2070 "y.tab.c"
     break;
 
   case 41: /* wagerStatistics: WAGER_STATISTICS '{' columns ',' wagers ',' addOn '}'  */
 #line 118 "bison.y"
                                                                        {}
-#line 2058 "y.tab.c"
+#line 2076 "y.tab.c"
     break;
 
   case 42: /* columns: COLUMNS POSITIVE_INTEGER  */
 #line 119 "bison.y"
                                   {}
-#line 2064 "y.tab.c"
+#line 2082 "y.tab.c"
     break;
 
   case 43: /* wagers: WAGERS POSITIVE_INTEGER  */
 #line 120 "bison.y"
                                 {}
-#line 2070 "y.tab.c"
+#line 2088 "y.tab.c"
     break;
 
   case 44: /* addOn: ADDON jsonarray  */
 #line 121 "bison.y"
                        {}
-#line 2076 "y.tab.c"
+#line 2094 "y.tab.c"
     break;
 
   case 46: /* contentlisting: '{' gameId ',' drawId ',' drawTime ',' status ',' drawBreak ',' visualDraw ',' pricePoints ',' winningNumbers ',' prizeCategories ',' wagerStatistics '}' ','  */
 #line 124 "bison.y"
                                                                                                                                                                                                                                                                                                                                                               {}
-#line 2082 "y.tab.c"
+#line 2100 "y.tab.c"
     break;
 
   case 47: /* content: CONTENT '[' contentlisting ']'  */
 #line 125 "bison.y"
                                         {}
-#line 2088 "y.tab.c"
+#line 2106 "y.tab.c"
     break;
 
   case 48: /* sort: SORT '[' '{' direction ',' property ',' ignoreCase ',' nullHandling ',' descending ',' ascending '}' ']'  */
 #line 127 "bison.y"
                                                                                                                 {}
-#line 2094 "y.tab.c"
+#line 2112 "y.tab.c"
     break;
 
   case 49: /* totalPages: TOTAL_PAGES POSITIVE_INTEGER  */
 #line 129 "bison.y"
                                          {}
-#line 2100 "y.tab.c"
+#line 2118 "y.tab.c"
     break;
 
   case 50: /* totalElements: TOTAL_ELEMENTS POSITIVE_INTEGER  */
 #line 130 "bison.y"
                                                {}
-#line 2106 "y.tab.c"
+#line 2124 "y.tab.c"
     break;
 
   case 52: /* boolean: FALSE  */
 #line 131 "bison.y"
                       {}
-#line 2112 "y.tab.c"
+#line 2130 "y.tab.c"
     break;
 
   case 53: /* last2: LAST boolean  */
 #line 132 "bison.y"
                    {}
-#line 2118 "y.tab.c"
+#line 2136 "y.tab.c"
     break;
 
   case 54: /* numberOfElements: NUMBER_OF_ELEMENTS POSITIVE_INTEGER  */
 #line 133 "bison.y"
                                                       {}
-#line 2124 "y.tab.c"
+#line 2142 "y.tab.c"
     break;
 
   case 55: /* direction: DIRECTION ALPHANUMERIC  */
 #line 134 "bison.y"
                                   {}
-#line 2130 "y.tab.c"
+#line 2148 "y.tab.c"
     break;
 
   case 56: /* property: PROPERTY CLASSITEM  */
 #line 135 "bison.y"
                             {}
-#line 2136 "y.tab.c"
+#line 2154 "y.tab.c"
     break;
 
   case 57: /* ignoreCase: IGNORE_CASE boolean  */
 #line 136 "bison.y"
                                 {}
-#line 2142 "y.tab.c"
+#line 2160 "y.tab.c"
     break;
 
   case 58: /* nullHandling: NULL_HANDLING ALPHANUMERIC  */
 #line 137 "bison.y"
                                          {}
-#line 2148 "y.tab.c"
+#line 2166 "y.tab.c"
     break;
 
   case 59: /* descending: DESCENDING boolean  */
 #line 138 "bison.y"
                                {}
-#line 2154 "y.tab.c"
+#line 2172 "y.tab.c"
     break;
 
   case 60: /* ascending: ASCENDING boolean  */
 #line 139 "bison.y"
                             {}
-#line 2160 "y.tab.c"
+#line 2178 "y.tab.c"
     break;
 
   case 61: /* first: FIRST boolean  */
 #line 140 "bison.y"
                      {}
-#line 2166 "y.tab.c"
+#line 2184 "y.tab.c"
     break;
 
   case 62: /* size: SIZE POSITIVE_INTEGER  */
 #line 141 "bison.y"
                             {}
-#line 2172 "y.tab.c"
+#line 2190 "y.tab.c"
     break;
 
   case 63: /* number: NUMBER POSITIVE_INTEGER  */
 #line 142 "bison.y"
                                 {}
-#line 2178 "y.tab.c"
+#line 2196 "y.tab.c"
     break;
 
 
-#line 2182 "y.tab.c"
+#line 2200 "y.tab.c"
 
       default: break;
     }

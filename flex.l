@@ -2,6 +2,7 @@
 	#include <stdio.h>
 	#include "y.tab.h"
 	int list_count=0;
+	int prizeCategoriesCounter = 0;
 %}
 
 %s ALPHA BETA GAMMA CHECK LISTCHECK
@@ -44,9 +45,9 @@ classitem {alphanumeric}\.{alphanumeric}
 "\"winningNumbers\":" 	{ return WINNING_NUMBERS; }	 
 "\"list\":" 	{ BEGIN(LISTCHECK);return LIST; }
 "\"bonus\":" 	{ return BONUS; }
-"\"prizeCategories\":" 	{ return PRIZE_CATEGORIES; }
+"\"prizeCategories\":" 	{ prizeCategoriesCounter = 0; return PRIZE_CATEGORIES; }
 "\"id\":" { BEGIN(BETA); return ID; }
-"\"divident\":" 	{ return DIVIDENT; }
+"\"divident\":" 	{ prizeCategoriesCounter++; checkMaximumPrizeCategories(); return DIVIDENT; }
 "\"winners\":" 	{ return WINNERS; }
 "\"distributed\":"  	{ return DISTRIBUTED; }
 "\"jackpot\":" 	{ return JACKPOT; }
@@ -54,7 +55,7 @@ classitem {alphanumeric}\.{alphanumeric}
 "\"categoryType\":" 	{ BEGIN(BETA); return CATEGORY_TYPE; }
 "\"gameType\":"	{ BEGIN(ALPHA); return GAMETYPE; }
 "\"minimumDistributed\":"   { return MINIMUM_DISTRIBUTED; }
-"\"wagerStatistics\":"  	{ return WAGER_STATISTICS; }
+"\"wagerStatistics\":"  	{ checkMinimumPrizeCategories(); return WAGER_STATISTICS; }
 "\"columns\":"	{ return COLUMNS; }
 "\"wagers\":"	{ return WAGERS; }
 "\"addOn\":"	{ BEGIN(ALPHA);  return ADDON; }
@@ -117,32 +118,52 @@ classitem {alphanumeric}\.{alphanumeric}
 void num_range(int val){
 	if((0<val)&&(val<45))
 		return;
-	printf("in list item thre is value (%d) outside the allowed range",val);
-	return;
+	printf("Error: In List Item There Is Value (%d) Which Is Outside Of The Allowed Range!\n",val);
+	exit(0);
 }
 void list_check(int count){
 	if(count==5)
 		return;
-	printf("list embeded JSON items are  %d, not 5 \n",count);
-	return;
+	printf("Error: List Embeded JSON Items Are  %d, Not 5!\n",count);
+	exit(0);
 }
 void check (int val){
 	if(val == 1100)
 		return;
-	if(val == 1110)
+	else if(val == 1110)
 		return;
-	if(val == 2100)
+	else if(val == 2100)
 		return;
-	if(val == 2101)
+	else if(val == 2101)
 		return;
-	if(val == 5103)
+	else if(val == 5103)
 		return;	
 		
-	if(val == 5104)
+	else if(val == 5104)
 		return;	
-	if(val == 5106)
+	else if(val == 5106)
 		return;	
 		
-	printf("wrong input at gameId");
-		return;
+	printf("Error: Invalid GameId!\n");
+		exit(0);
+}
+
+void checkMaximumPrizeCategories()
+{
+	if(prizeCategoriesCounter > 8)
+	{
+		printf("Error: prizeCategories Has More Than 8 Embedded JSON Objects!\n");
+		exit(0);
+	}
+	return;
+}
+
+void checkMinimumPrizeCategories()
+{
+	if(prizeCategoriesCounter < 8)
+	{
+		printf("Error: prizeCategories Has Less Than 8 Embedded JSON Objects!\n");
+		exit(0);
+	}
+	return;
 }

@@ -92,17 +92,7 @@
                 "fixed": 2.0,
                 "categoryType": 1,
                 "gameType": "Normal"
-            },
-            {
-                "id": 8,
-                "divident": 1.5,
-                "winners": 49233,
-                "distributed": 73849.5,
-                "jackpot": 0.0,
-                "fixed": 1.5,
-                "categoryType": 1,
-                "gameType": "Normal"
-            }
+	    }
         ],
         "wagerStatistics": {
             "columns": 2866438,
